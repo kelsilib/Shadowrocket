@@ -1,0 +1,22 @@
+{
+  "lazy_group.conf": {
+    "url": "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf",
+    "sha256": "2b9a7e621301fcf4cf5ff572a6d00fda52186495c138577c6035c3b912279a86"
+  },
+  "AI.txt": {
+    "url": "https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rule/AI.txt",
+    "sha256": "84c41a6cd9053845c4b862856b07e6b526d52327eb25253de81e280f372c35fb"
+  },
+  "gemini.list": {
+    "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Gemini/Gemini.list",
+    "sha256": "db8f69154426dca76792ab80b3ad6b0e2d078ebe0e52e76faec1724245a4ec49"
+  },
+  "appletv.list": {
+    "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/AppleTV/AppleTV.list",
+    "sha256": "765c3689f99b10b2fa8a3910747676ac0a75b98869e1e0f9962bfe1121307f69"
+  },
+  "xiaohongshu.list": {
+    "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/XiaoHongShu/XiaoHongShu.list",
+    "sha256": "9fb20e80dc0962cfdf410ffbd72d6bf2a6a0ac0d930951880f98164ff229e8ff"
+  }
+}

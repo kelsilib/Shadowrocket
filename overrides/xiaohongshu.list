@@ -1,0 +1,9 @@
+# 国内版小红书、海外版 rednote 和分享短链均直连。
+# 2026-11-14 实查 https://www.rednote.com 和 https://www.xiaohongshu.com：
+# 海外图片、脚本、头像等资源使用 rednotecdn.com，不能只添加 rednote.com。
+DOMAIN-SUFFIX,rednote.com
+DOMAIN-SUFFIX,rednotecdn.com
+DOMAIN-SUFFIX,xhslink.com
+DOMAIN-SUFFIX,xhslink.cn
+# 官方网页实际引用的对象存储主机，限制为完整域名，避免影响其他腾讯云用户。
+DOMAIN,picasso-private-1251524319.cos.ap-shanghai.myqcloud.com
