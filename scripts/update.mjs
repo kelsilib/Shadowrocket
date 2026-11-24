@@ -82,8 +82,15 @@ function once(text, before, after) {
 
 export function makeConfig(original) {
   let text = original.replace(/\r\n/g, '\n');
-  text = `# kelsilib 定制：Apple TV / Google AI 拆分 / 低倍率手选 / 小红书与 rednote 直连\n# 基于 LOWERTOP/Shadowrocket 的 lazy_group.conf，使用 scripts/update.mjs 更新。\n` + text;
+  text = `# kelsilib 定制：Apple TV / Google AI 拆分 / 低倍率手选 / 小红书与 rednote 直连 / 国内 DNS 与全 Shadowrocket 规则优化\n# 基于 LOWERTOP/Shadowrocket 的 lazy_group.conf，使用 scripts/update.mjs 更新。\n` + text;
   text = once(text, '[General]\n', `[General]\nupdate-url = ${RAW}/lazy_group.conf\n`);
+  text = once(
+    text,
+    'dns-server = https://doh.pub/dns-query,https://dns.alidns.com/dns-query,223.5.5.5,119.29.29.29',
+    'dns-server = 223.5.5.5,119.29.29.29,https://dns.alidns.com/dns-query#no-h3,https://doh.pub/dns-query#no-h3',
+  );
+  text = once(text, 'ipv6 = true', 'ipv6 = false');
+  text = once(text, 'dns-direct-system = false', 'dns-direct-system = true');
   text = once(text, 'dns-direct-fallback-proxy = true', 'dns-direct-fallback-proxy = false');
   const groupStart = text.indexOf('[Proxy Group]');
   const ruleStart = text.indexOf('[Rule]');
@@ -113,6 +120,21 @@ export function makeConfig(original) {
   ].join('\n');
   text = text.slice(0, aiStart) + customRules + text.slice(aiEnd + aiEndMarker.length);
   text = once(text, 'RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/XiaoHongShu/XiaoHongShu.list,DIRECT\n', '');
+  // Use native Shadowrocket rule sets (DOMAIN-SET + RULE-SET with no-resolve) instead of QuantumultX lists.
+  const qxBase = 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX';
+  const srBase = 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket';
+  for (const [name, policy] of [['Apple', '苹果服务'], ['Global', 'PROXY'], ['China', 'DIRECT']]) {
+    text = once(
+      text,
+      `RULE-SET,${qxBase}/${name}/${name}.list,${policy}`,
+      `DOMAIN-SET,${srBase}/${name}/${name}_Domain.list,${policy}\nRULE-SET,${srBase}/${name}/${name}.list,${policy}`,
+    );
+  }
+  text = once(
+    text,
+    `RULE-SET,${qxBase}/WeChat/WeChat.list,DIRECT`,
+    `RULE-SET,${srBase}/WeChat/WeChat.list,DIRECT`,
+  );
   // Resolve service references to their exact declared names, including case.
   const names = new Map();
   for (const line of groups.split('\n')) {

@@ -50,8 +50,17 @@ export function check(outputs, sources) {
   const lowRate = new RegExp(LOW_RATE_REGEX);
   for (const name of ['实验 香港', '香港实验节点', '香港 0.1x', '台湾0.6x', '美国 [0.1X]', '0.6x']) assert(lowRate.test(name), `should include ${name}`);
   for (const name of ['香港 1x', '10.1x', '10.6x', '20.1x', '0.16x', '0.10x', '0.6xyz', '0a1x', '1.0.1x']) assert(!lowRate.test(name), `should exclude ${name}`);
+  assert(config.includes('dns-server = 223.5.5.5,119.29.29.29,https://dns.alidns.com/dns-query#no-h3,https://doh.pub/dns-query#no-h3'));
+  assert(config.includes('ipv6 = false'));
+  assert(config.includes('dns-direct-system = true'));
   assert(config.includes('dns-direct-fallback-proxy = false'));
   assert(config.includes(`update-url = ${RAW}/lazy_group.conf`));
+  assert(!config.includes('/rule/QuantumultX/'), 'QuantumultX rule-set still referenced');
+  for (const [name, policy] of [['Apple', '苹果服务'], ['Global', 'PROXY'], ['China', 'DIRECT']]) {
+    assert(config.includes(`DOMAIN-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/${name}/${name}_Domain.list,${policy}`), `missing Shadowrocket DOMAIN-SET ${name}`);
+    assert(config.includes(`RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/${name}/${name}.list,${policy}`), `missing Shadowrocket RULE-SET ${name}`);
+  }
+  assert(config.includes('RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/WeChat/WeChat.list,DIRECT'), 'missing Shadowrocket WeChat RULE-SET');
   assert(!/sukka|skk\.moe/i.test(config), 'unwanted Sukka reference');
   assert(!config.includes('Rule/AI.txt,AI'), 'unfiltered AI source still referenced');
   const topRules = rules(section(config, 'Rule'));

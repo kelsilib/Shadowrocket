@@ -1,59 +1,8 @@
 {
   "resources": [
     {
-      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Apple/Apple.list",
-      "rules": 1880,
-      "types": [
-        "HOST",
-        "HOST-SUFFIX",
-        "HOST-WILDCARD",
-        "HOST-KEYWORD",
-        "USER-AGENT",
-        "IP-CIDR",
-        "IP6-CIDR"
-      ],
-      "source": "remote HTTP 200"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/China/China.list",
-      "rules": 3753,
-      "types": [
-        "HOST",
-        "HOST-SUFFIX",
-        "HOST-WILDCARD",
-        "HOST-KEYWORD",
-        "USER-AGENT",
-        "IP-CIDR",
-        "IP6-CIDR"
-      ],
-      "source": "remote HTTP 200"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Global/Global.list",
-      "rules": 36014,
-      "types": [
-        "HOST",
-        "HOST-SUFFIX",
-        "HOST-KEYWORD",
-        "USER-AGENT",
-        "IP-CIDR",
-        "IP6-CIDR"
-      ],
-      "source": "remote HTTP 200"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/WeChat/WeChat.list",
-      "rules": 43,
-      "types": [
-        "HOST",
-        "HOST-SUFFIX",
-        "USER-AGENT",
-        "IP-ASN"
-      ],
-      "source": "remote HTTP 200"
-    },
-    {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Amazon/Amazon.list",
+      "kind": "RULE-SET",
       "rules": 205,
       "types": [
         "DOMAIN-SUFFIX",
@@ -65,7 +14,28 @@
       "source": "remote HTTP 200"
     },
     {
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Apple/Apple_Domain.list",
+      "kind": "DOMAIN-SET",
+      "rules": 1559,
+      "types": [
+        "DOMAIN-SET"
+      ],
+      "source": "remote HTTP 200"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Apple/Apple.list",
+      "kind": "RULE-SET",
+      "rules": 43,
+      "types": [
+        "DOMAIN-KEYWORD",
+        "USER-AGENT",
+        "IP-CIDR"
+      ],
+      "source": "remote HTTP 200"
+    },
+    {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Baidu/Baidu.list",
+      "kind": "RULE-SET",
       "rules": 251,
       "types": [
         "DOMAIN-SUFFIX"
@@ -74,6 +44,7 @@
     },
     {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/BiliBili/BiliBili.list",
+      "kind": "RULE-SET",
       "rules": 127,
       "types": [
         "DOMAIN",
@@ -84,7 +55,29 @@
       "source": "remote HTTP 200"
     },
     {
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/China/China_Domain.list",
+      "kind": "DOMAIN-SET",
+      "rules": 3689,
+      "types": [
+        "DOMAIN-SET"
+      ],
+      "source": "remote HTTP 200"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/China/China.list",
+      "kind": "RULE-SET",
+      "rules": 63,
+      "types": [
+        "DOMAIN-SUFFIX",
+        "DOMAIN-KEYWORD",
+        "USER-AGENT",
+        "IP-CIDR"
+      ],
+      "source": "remote HTTP 200"
+    },
+    {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Disney/Disney.list",
+      "kind": "RULE-SET",
       "rules": 173,
       "types": [
         "DOMAIN-SUFFIX",
@@ -94,6 +87,7 @@
     },
     {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/DouBan/DouBan.list",
+      "kind": "RULE-SET",
       "rules": 3,
       "types": [
         "DOMAIN-SUFFIX"
@@ -102,6 +96,7 @@
     },
     {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/DouYin/DouYin.list",
+      "kind": "RULE-SET",
       "rules": 13,
       "types": [
         "DOMAIN",
@@ -111,6 +106,7 @@
     },
     {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Epic/Epic.list",
+      "kind": "RULE-SET",
       "rules": 15,
       "types": [
         "DOMAIN-SUFFIX"
@@ -119,6 +115,7 @@
     },
     {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Facebook/Facebook.list",
+      "kind": "RULE-SET",
       "rules": 570,
       "types": [
         "DOMAIN-SUFFIX",
@@ -130,6 +127,7 @@
     },
     {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Game/Game.list",
+      "kind": "RULE-SET",
       "rules": 612,
       "types": [
         "DOMAIN",
@@ -141,6 +139,7 @@
     },
     {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/GitHub/GitHub.list",
+      "kind": "RULE-SET",
       "rules": 31,
       "types": [
         "DOMAIN-SUFFIX",
@@ -149,7 +148,28 @@
       "source": "remote HTTP 200"
     },
     {
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Global/Global_Domain.list",
+      "kind": "DOMAIN-SET",
+      "rules": 35122,
+      "types": [
+        "DOMAIN-SET"
+      ],
+      "source": "remote HTTP 200"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Global/Global.list",
+      "kind": "RULE-SET",
+      "rules": 201,
+      "types": [
+        "DOMAIN-KEYWORD",
+        "USER-AGENT",
+        "IP-CIDR"
+      ],
+      "source": "remote HTTP 200"
+    },
+    {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Google/Google.list",
+      "kind": "RULE-SET",
       "rules": 698,
       "types": [
         "DOMAIN",
@@ -162,6 +182,7 @@
     },
     {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/HBO/HBO.list",
+      "kind": "RULE-SET",
       "rules": 49,
       "types": [
         "DOMAIN-SUFFIX",
@@ -171,6 +192,7 @@
     },
     {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Lan/Lan.list",
+      "kind": "RULE-SET",
       "rules": 142,
       "types": [
         "DOMAIN",
@@ -181,6 +203,7 @@
     },
     {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Microsoft/Microsoft.list",
+      "kind": "RULE-SET",
       "rules": 671,
       "types": [
         "DOMAIN",
@@ -192,6 +215,7 @@
     },
     {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/NetEaseMusic/NetEaseMusic.list",
+      "kind": "RULE-SET",
       "rules": 30,
       "types": [
         "DOMAIN",
@@ -203,6 +227,7 @@
     },
     {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Netflix/Netflix.list",
+      "kind": "RULE-SET",
       "rules": 1157,
       "types": [
         "DOMAIN",
@@ -215,6 +240,7 @@
     },
     {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Nintendo/Nintendo.list",
+      "kind": "RULE-SET",
       "rules": 126,
       "types": [
         "DOMAIN-SUFFIX",
@@ -224,6 +250,7 @@
     },
     {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/PayPal/PayPal.list",
+      "kind": "RULE-SET",
       "rules": 248,
       "types": [
         "DOMAIN-SUFFIX",
@@ -234,6 +261,7 @@
     },
     {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Sina/Sina.list",
+      "kind": "RULE-SET",
       "rules": 108,
       "types": [
         "DOMAIN-SUFFIX",
@@ -243,6 +271,7 @@
     },
     {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Sony/Sony.list",
+      "kind": "RULE-SET",
       "rules": 116,
       "types": [
         "DOMAIN",
@@ -252,6 +281,7 @@
     },
     {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Spotify/Spotify.list",
+      "kind": "RULE-SET",
       "rules": 30,
       "types": [
         "DOMAIN",
@@ -264,6 +294,7 @@
     },
     {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Steam/Steam.list",
+      "kind": "RULE-SET",
       "rules": 69,
       "types": [
         "DOMAIN-SUFFIX",
@@ -274,6 +305,7 @@
     },
     {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/SteamCN/SteamCN.list",
+      "kind": "RULE-SET",
       "rules": 17,
       "types": [
         "DOMAIN",
@@ -283,6 +315,7 @@
     },
     {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Telegram/Telegram.list",
+      "kind": "RULE-SET",
       "rules": 40,
       "types": [
         "DOMAIN",
@@ -295,6 +328,7 @@
     },
     {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/TikTok/TikTok.list",
+      "kind": "RULE-SET",
       "rules": 35,
       "types": [
         "DOMAIN",
@@ -306,6 +340,7 @@
     },
     {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Twitter/Twitter.list",
+      "kind": "RULE-SET",
       "rules": 33,
       "types": [
         "DOMAIN-SUFFIX",
@@ -315,7 +350,20 @@
       "source": "remote HTTP 200"
     },
     {
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/WeChat/WeChat.list",
+      "kind": "RULE-SET",
+      "rules": 33,
+      "types": [
+        "DOMAIN",
+        "DOMAIN-SUFFIX",
+        "USER-AGENT",
+        "IP-ASN"
+      ],
+      "source": "remote HTTP 200"
+    },
+    {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/YouTube/YouTube.list",
+      "kind": "RULE-SET",
       "rules": 190,
       "types": [
         "DOMAIN-SUFFIX",
@@ -327,6 +375,7 @@
     },
     {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Zhihu/Zhihu.list",
+      "kind": "RULE-SET",
       "rules": 7,
       "types": [
         "DOMAIN-SUFFIX",
@@ -336,6 +385,7 @@
     },
     {
       "url": "https://raw.githubusercontent.com/kelsilib/Shadowrocket/custom/rules/AI_NoGoogle.list",
+      "kind": "RULE-SET",
       "rules": 53,
       "types": [
         "DOMAIN-SUFFIX",
@@ -347,6 +397,7 @@
     },
     {
       "url": "https://raw.githubusercontent.com/kelsilib/Shadowrocket/custom/rules/AppleTV.list",
+      "kind": "RULE-SET",
       "rules": 9,
       "types": [
         "DOMAIN",
@@ -357,6 +408,7 @@
     },
     {
       "url": "https://raw.githubusercontent.com/kelsilib/Shadowrocket/custom/rules/GoogleAI.list",
+      "kind": "RULE-SET",
       "rules": 22,
       "types": [
         "DOMAIN-SUFFIX",
@@ -367,6 +419,7 @@
     },
     {
       "url": "https://raw.githubusercontent.com/kelsilib/Shadowrocket/custom/rules/XiaoHongShu_Direct.list",
+      "kind": "RULE-SET",
       "rules": 9,
       "types": [
         "DOMAIN-SUFFIX",
@@ -375,6 +428,6 @@
       "source": "local generated"
     }
   ],
-  "fullChainDomainScenarios": 13,
+  "fullChainDomainScenarios": 24,
   "nativeShadowrocketTested": false
 }
