@@ -56,11 +56,15 @@ export function check(outputs, sources) {
   assert(config.includes('dns-direct-fallback-proxy = false'));
   assert(config.includes(`update-url = ${RAW}/lazy_group.conf`));
   assert(!config.includes('/rule/QuantumultX/'), 'QuantumultX rule-set still referenced');
-  for (const [name, policy] of [['Apple', '苹果服务'], ['Global', 'PROXY'], ['China', 'DIRECT']]) {
+  assert(!config.includes('/Global/Global'), 'heavy Global rule-set still referenced');
+  for (const [name, policy] of [['Apple', '苹果服务'], ['China', 'DIRECT']]) {
     assert(config.includes(`DOMAIN-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/${name}/${name}_Domain.list,${policy}`), `missing Shadowrocket DOMAIN-SET ${name}`);
     assert(config.includes(`RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/${name}/${name}.list,${policy}`), `missing Shadowrocket RULE-SET ${name}`);
   }
-  assert(config.includes('RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/WeChat/WeChat.list,DIRECT'), 'missing Shadowrocket WeChat RULE-SET');
+  assert(config.includes('RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/ProxyLite/ProxyLite.list,PROXY'), 'missing Shadowrocket ProxyLite RULE-SET');
+  for (const redundant of ['NetEaseMusic', 'Baidu', 'DouBan', 'WeChat', 'Sina', 'Zhihu']) {
+    assert(!config.includes(`/${redundant}/${redundant}.list,DIRECT`), `redundant domestic rule-set still referenced: ${redundant}`);
+  }
   assert(!/sukka|skk\.moe/i.test(config), 'unwanted Sukka reference');
   assert(!config.includes('Rule/AI.txt,AI'), 'unfiltered AI source still referenced');
   const topRules = rules(section(config, 'Rule'));

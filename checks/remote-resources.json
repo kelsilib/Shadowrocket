@@ -34,15 +34,6 @@
       "source": "remote HTTP 200"
     },
     {
-      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Baidu/Baidu.list",
-      "kind": "RULE-SET",
-      "rules": 251,
-      "types": [
-        "DOMAIN-SUFFIX"
-      ],
-      "source": "remote HTTP 200"
-    },
-    {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/BiliBili/BiliBili.list",
       "kind": "RULE-SET",
       "rules": 127,
@@ -82,15 +73,6 @@
       "types": [
         "DOMAIN-SUFFIX",
         "USER-AGENT"
-      ],
-      "source": "remote HTTP 200"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/DouBan/DouBan.list",
-      "kind": "RULE-SET",
-      "rules": 3,
-      "types": [
-        "DOMAIN-SUFFIX"
       ],
       "source": "remote HTTP 200"
     },
@@ -148,26 +130,6 @@
       "source": "remote HTTP 200"
     },
     {
-      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Global/Global_Domain.list",
-      "kind": "DOMAIN-SET",
-      "rules": 35122,
-      "types": [
-        "DOMAIN-SET"
-      ],
-      "source": "remote HTTP 200"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Global/Global.list",
-      "kind": "RULE-SET",
-      "rules": 201,
-      "types": [
-        "DOMAIN-KEYWORD",
-        "USER-AGENT",
-        "IP-CIDR"
-      ],
-      "source": "remote HTTP 200"
-    },
-    {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Google/Google.list",
       "kind": "RULE-SET",
       "rules": 698,
@@ -214,18 +176,6 @@
       "source": "remote HTTP 200"
     },
     {
-      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/NetEaseMusic/NetEaseMusic.list",
-      "kind": "RULE-SET",
-      "rules": 30,
-      "types": [
-        "DOMAIN",
-        "DOMAIN-SUFFIX",
-        "USER-AGENT",
-        "IP-CIDR"
-      ],
-      "source": "remote HTTP 200"
-    },
-    {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Netflix/Netflix.list",
       "kind": "RULE-SET",
       "rules": 1157,
@@ -260,12 +210,15 @@
       "source": "remote HTTP 200"
     },
     {
-      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Sina/Sina.list",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/ProxyLite/ProxyLite.list",
       "kind": "RULE-SET",
-      "rules": 108,
+      "rules": 1004,
       "types": [
+        "DOMAIN",
         "DOMAIN-SUFFIX",
-        "DOMAIN-KEYWORD"
+        "DOMAIN-KEYWORD",
+        "USER-AGENT",
+        "IP-CIDR"
       ],
       "source": "remote HTTP 200"
     },
@@ -350,18 +303,6 @@
       "source": "remote HTTP 200"
     },
     {
-      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/WeChat/WeChat.list",
-      "kind": "RULE-SET",
-      "rules": 33,
-      "types": [
-        "DOMAIN",
-        "DOMAIN-SUFFIX",
-        "USER-AGENT",
-        "IP-ASN"
-      ],
-      "source": "remote HTTP 200"
-    },
-    {
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/YouTube/YouTube.list",
       "kind": "RULE-SET",
       "rules": 190,
@@ -369,16 +310,6 @@
         "DOMAIN-SUFFIX",
         "DOMAIN-KEYWORD",
         "USER-AGENT",
-        "IP-CIDR"
-      ],
-      "source": "remote HTTP 200"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Zhihu/Zhihu.list",
-      "kind": "RULE-SET",
-      "rules": 7,
-      "types": [
-        "DOMAIN-SUFFIX",
         "IP-CIDR"
       ],
       "source": "remote HTTP 200"
@@ -428,6 +359,6 @@
       "source": "local generated"
     }
   ],
-  "fullChainDomainScenarios": 24,
+  "fullChainDomainScenarios": 32,
   "nativeShadowrocketTested": false
 }

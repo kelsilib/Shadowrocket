@@ -22,8 +22,8 @@ https://raw.githubusercontent.com/kelsilib/Shadowrocket/custom/lazy_group.conf
 - **小红书与 rednote**：专用直连规则置于最前，包括国内域名、海外域名 `rednote.com`、海外 CDN `rednotecdn.com`、国内 CDN 和分享短链。海外 CDN 来自两个官网页面的实际资源引用。
 - **直连解析失败不回退代理**：`dns-direct-fallback-proxy = false`，防止小红书、淘宝等直连请求因 DNS 失败改走代理；解析失败时应检查直连网络或 DNS。
 - **国内 DNS 与 IPv6 优化**：关闭 `ipv6 = false` 避免国内大厂 CDN 在不稳定 IPv6 环境下图片加载卡死；开启 `dns-direct-system = true` 让直连域名使用本地运营商 DNS 保证 CDN 就近调度；`dns-server` 改为国内纯 IP DNS 优先并给 DoH 附加 `#no-h3` 避免 UDP/443 QoS 卡顿。
-- **全量原生 Shadowrocket 规则集**：将上游配置中混用的 4 条 `QuantumultX` 规则集（`Apple`、`WeChat`、`Global`、`China`）替换为 `Shadowrocket` 原生格式（大列表采用官方推荐的 `DOMAIN-SET` + `RULE-SET` 组合），补齐全部 IP/ASN 规则的 `no-resolve` 标记并大幅降低内存与规则体积。
-- **修改前备份**：原 `custom` 分支状态已完整保留在远端分支 `backup/custom-20261124`，同时在本分支 `backups/lazy_group.conf.2026-11-24.bak` 留存文件备份。
+- **轻量全原生 Shadowrocket 规则集**：在白名单兜底（`FINAL,PROXY`）下，用 `ProxyLite.list`（约 1,004 条）替换约 3.5 万条的 `Global` 规则集；将 `Apple`、`China` 切换为 Shadowrocket 原生 `DOMAIN-SET` + `RULE-SET` 组合（全部 IP/ASN 带 `no-resolve`），并移除与 `China` 重叠的 6 个纯 `DIRECT` 国内规则集（保留小红书、抖音、哔哩哔哩、苹果），总规则数从约 4.6 万条精简至约 1.1 万条。
+- **修改前备份**：原 `custom` 分支初始状态保留在远端分支 `backup/custom-20261124`，同时在本分支 `backups/` 下留存历次修改前的 `lazy_group.conf` 文件备份。
 - 修正原配置中部分服务规则的策略名大小写，使其与组名严格一致。
 
 本分支按 LOWERTOP 原方案定制，未增加 Sukka 广告规则或静态资源分流。
