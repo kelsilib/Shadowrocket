@@ -82,7 +82,7 @@ function once(text, before, after) {
 
 export function makeConfig(original) {
   let text = original.replace(/\r\n/g, '\n');
-  text = `# kelsilib 定制：Apple TV / Google AI 拆分 / 低倍率手选 / 小红书与 rednote 直连 / 国内 DNS 与轻量原生规则优化\n# 基于 LOWERTOP/Shadowrocket 的 lazy_group.conf，使用 scripts/update.mjs 更新。\n` + text;
+  text = `# kelsilib 定制：Apple TV / Google AI 拆分 / 低倍率手选 / 小红书与 rednote 直连 / 国内 DNS 与全 Shadowrocket 规则优化\n# 基于 LOWERTOP/Shadowrocket 的 lazy_group.conf，使用 scripts/update.mjs 更新。\n` + text;
   text = once(text, '[General]\n', `[General]\nupdate-url = ${RAW}/lazy_group.conf\n`);
   text = once(
     text,
@@ -120,10 +120,10 @@ export function makeConfig(original) {
   ].join('\n');
   text = text.slice(0, aiStart) + customRules + text.slice(aiEnd + aiEndMarker.length);
   text = once(text, 'RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/XiaoHongShu/XiaoHongShu.list,DIRECT\n', '');
-  // Use native Shadowrocket rule sets and lightweight ProxyLite (replaces 35k Global list under FINAL,PROXY).
+  // Use native Shadowrocket rule sets (DOMAIN-SET + RULE-SET with no-resolve) instead of QuantumultX lists.
   const qxBase = 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX';
   const srBase = 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket';
-  for (const [name, policy] of [['Apple', '苹果服务'], ['China', 'DIRECT']]) {
+  for (const [name, policy] of [['Apple', '苹果服务'], ['Global', 'PROXY'], ['China', 'DIRECT']]) {
     text = once(
       text,
       `RULE-SET,${qxBase}/${name}/${name}.list,${policy}`,
@@ -132,20 +132,9 @@ export function makeConfig(original) {
   }
   text = once(
     text,
-    `RULE-SET,${qxBase}/Global/Global.list,PROXY`,
-    `RULE-SET,${srBase}/ProxyLite/ProxyLite.list,PROXY`,
+    `RULE-SET,${qxBase}/WeChat/WeChat.list,DIRECT`,
+    `RULE-SET,${srBase}/WeChat/WeChat.list,DIRECT`,
   );
-  // Remove redundant DIRECT-only domestic rule sets already covered by China_Domain + China + GEOIP,CN.
-  for (const line of [
-    `RULE-SET,${srBase}/NetEaseMusic/NetEaseMusic.list,DIRECT\n`,
-    `RULE-SET,${srBase}/Baidu/Baidu.list,DIRECT\n`,
-    `RULE-SET,${srBase}/DouBan/DouBan.list,DIRECT\n`,
-    `RULE-SET,${qxBase}/WeChat/WeChat.list,DIRECT\n`,
-    `RULE-SET,${srBase}/Sina/Sina.list,DIRECT\n`,
-    `RULE-SET,${srBase}/Zhihu/Zhihu.list,DIRECT\n`,
-  ]) {
-    text = once(text, line, '');
-  }
   // Resolve service references to their exact declared names, including case.
   const names = new Map();
   for (const line of groups.split('\n')) {
